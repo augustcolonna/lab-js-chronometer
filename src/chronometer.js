@@ -1,15 +1,18 @@
 class Chronometer {
   constructor() {
-    this.currentTime = 0
-    this.intervalId = null
+    this.currentTime = 0;
+    this.intervalId = null;
   }
 
   start(printTimeCallback) {
     this.intervalId = setInterval(() => {
+      
+      this.currentTime += 1
+      
       if(printTimeCallback){
         printTimeCallback()
       }
-      this.currentTime += 1
+      
     }, 1000)
   }
 
@@ -24,7 +27,7 @@ class Chronometer {
   }
 
   computeTwoDigitNumber(value) {
-    let stringVal = value.toString()
+    let stringVal = value.toString();
     
     if(stringVal.length === 1){
       return "0" + stringVal;
